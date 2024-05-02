@@ -249,7 +249,7 @@ def handle_current_week_schedule(message):
 # Функция для обработки нажатия на кнопку "Расписание на след неделю"
 @bot.message_handler(func=lambda message: message.text == "Расписание на следующую неделю")
 def handle_current_week_schedule(message):
-    if is_even_week():
+    if not is_even_week():
         schedule = """
         📅 *Расписание на следующую неделю*
 
