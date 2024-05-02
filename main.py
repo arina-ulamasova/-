@@ -329,10 +329,6 @@ def handle_kstu(message):
     kstu_url = "https://www.kstu.ru/"
     bot.send_message(message.chat.id, f"Официальный сайт Казанского национального исследовательского технологического университетп (КНИТУ): {kstu_url}")
 
-# Обработчик для неизвестных команд или сообщений
-@bot.message_handler(func=lambda message: True)
-def handle_unknown(message):
-    bot.send_message(message.chat.id, "Извините, я Вас не понял.")
 
 # Обработчик для сообщения "блин"
 @bot.message_handler(func=lambda message: message.text.lower() == "блин")
@@ -349,6 +345,10 @@ def handle_schedule_location(message):
 def handle_hungry(message):
     bot.send_message(message.chat.id, "Это печально. Но вы всегда можете покушать в столовой в Д корпусе или в кафетерии Б корпусе.")
 
+# Обработчик для неизвестных команд или сообщений
+@bot.message_handler(func=lambda message: True)
+def handle_unknown(message):
+    bot.send_message(message.chat.id, "Извините, я Вас не понял.")
 
 # Запускаем бота
 bot.polling()
